@@ -1,0 +1,790 @@
+/* =========================================================
+   1. RESET & CẤU HÌNH CHUNG
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #08080a;
+    color: #f5f5f7;
+    font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   2. HEADER BANNER & NAVIGATION BAR
+   ========================================================= */
+
+.menu {
+    width: 100%;
+    height: 75px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(8, 8, 10, 0.98) 0%, rgba(8, 8, 10, 0.85) 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dautien {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 30, 40, 0.6);
+    border: 1px solid rgba(255, 85, 0, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 85, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dautien:hover {
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+    border-color: rgba(255, 85, 0, 0.8);
+}
+
+.dautien .logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+}
+
+.dautien .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.web-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 40%, #ff5500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu .hoa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.menu .hoa li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #b3b3b3;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.menu .hoa li a:hover,
+.menu .hoa li a.active {
+    color: #ffffff;
+    background: rgba(255, 85, 0, 0.1);
+    box-shadow: inset 0 0 10px rgba(255, 85, 0, 0.15);
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.khung-tim-kiem {
+    display: flex;
+    align-items: center;
+    background-color: rgba(25, 25, 30, 0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.khung-tim-kiem:focus-within {
+    border-color: #ff5500;
+    box-shadow: 0 0 12px rgba(255, 85, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+.khung-tim-kiem input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 13.5px;
+    padding: 8px 16px;
+    width: 210px;
+}
+
+.khung-tim-kiem button {
+    background: transparent;
+    border: none;
+    color: #ff5500;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    transition: transform 0.2s ease;
+}
+
+.khung-tim-kiem button:hover {
+    transform: scale(1.1);
+}
+
+.nut-header {
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nut-dangnhap {
+    color: #ffffff;
+    background: linear-gradient(90deg, #ff4500, #ff7300);
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+.nut-dangnhap:hover {
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+.icon-support {
+    color: #b3b3b3;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.icon-support:hover {
+    color: #ff5500;
+}
+
+
+/* =========================================================
+   3. PREMIUM HERO BANNER
+   ========================================================= */
+
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 88vh;
+    overflow: hidden;
+    background-color: #08080a;
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.banner-bg.active {
+    opacity: 0.45;
+    transform: scale(1);
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(8, 8, 10, 1) 15%, rgba(8, 8, 10, 0.5) 50%, rgba(8, 8, 10, 0.8) 100%), linear-gradient(to top, rgba(8, 8, 10, 1) 0%, rgba(8, 8, 10, 0) 40%);
+    z-index: 2;
+}
+
+.banner-content {
+    position: absolute;
+    bottom: 38%;
+    left: 5%;
+    max-width: 650px;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.banner-content.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie-logo {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.movie-desc {
+    font-size: 1.05rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.btn-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff5500;
+    color: white;
+    padding: 14px 36px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 25px rgba(255, 85, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-play:hover {
+    background: #ffffff;
+    color: #ff5500;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(255, 85, 0, 0.6);
+}
+
+
+/* THUMBNAILS BANNER - KHÔNG GIAN ĐỊNH VỊ CHO PHÉP CĂN GIỮA ĐỘNG */
+
+.thumbnail-wrapper {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 3;
+    height: 130px;
+    display: flex;
+    align-items: center;
+}
+
+.thumbnail-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.thumbnail-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.thumb-item {
+    width: 150px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 85px;
+    object-fit: cover;
+    display: block;
+}
+
+.thumb-item.active {
+    opacity: 1;
+    border-color: #ff5500;
+    transform: scale(1.12);
+    box-shadow: 0 8px 25px rgba(255, 85, 0, 0.4);
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: #ff5500;
+    width: 0%;
+}
+
+
+/* =========================================================
+   3.1. GENRE BAR STYLING
+   ========================================================= */
+
+.the-loai-banner-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 4%;
+    z-index: 4;
+    background: linear-gradient(to top, #08080a 40%, rgba(8, 8, 10, 0));
+}
+
+.danh-sach-the-loai {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+}
+
+.danh-sach-the-loai::-webkit-scrollbar {
+    display: none;
+}
+
+.nut-the-loai {
+    background-color: rgba(25, 25, 30, 0.7);
+    color: #cccccc;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 22px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nut-the-loai:hover {
+    color: #ffffff;
+    border-color: #ff5500;
+    background-color: rgba(255, 85, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.nut-the-loai.active {
+    background: linear-gradient(90deg, #ff4500, #ff7300);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+}
+
+
+/* =========================================================
+   4. CARD GRID LOGIC
+   ========================================================= */
+
+.hang-truyen {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 4%;
+}
+
+.tieude-hang {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-left: 14px;
+    border-left: 5px solid #ff5500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.tieude-hang.anime-sap-ra-mat {
+    border-left-color: #00e5ff !important;
+}
+
+.khung-chua-the {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 25px;
+}
+
+.the-truyen {
+    position: relative;
+    cursor: pointer;
+    background-color: #111115;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.the-truyen:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 85, 0, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 85, 0, 0.1);
+}
+
+.the-truyen .anh-truyen {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.the-truyen .anh-truyen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.the-truyen:hover .anh-truyen img {
+    transform: scale(1.06);
+}
+
+.thong-tin-the {
+    padding: 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to top, #0f0f13 80%, #111115 100%);
+}
+
+.the-truyen h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tag-meta {
+    font-size: 0.8rem;
+    color: #00e5ff;
+    font-weight: 700;
+}
+
+.tag-chap {
+    font-size: 0.8rem;
+    color: #ff7300;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   5. EXPANDABLE PREVIEW PANEL
+   ========================================================= */
+
+.preview-panel {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #121218 0%, #0d0d12 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out, margin 0.4s ease;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.preview-panel.open {
+    max-height: 500px;
+    opacity: 1;
+    border: 1px solid rgba(255, 85, 0, 0.2);
+    margin: 20px 0;
+}
+
+.preview-content {
+    padding: 35px;
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.preview-img-wrap {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.preview-img {
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-info {
+    flex: 1;
+}
+
+.preview-info h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.preview-meta {
+    color: #00e5ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.preview-synopsis {
+    color: #b3b3b3;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.btn-watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #ff4500, #ff7300);
+    color: white;
+    padding: 12px 32px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-watch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5);
+}
+
+
+/* =========================================================
+   6. CINEMATIC VIDEO PLATFORM
+   ========================================================= */
+
+.khu-xem-video {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #0f0f14;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.khu-xem-video h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.khung-phim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+
+/* =========================================================
+   7. FOOTER SYSTEM
+   ========================================================= */
+
+.footer {
+    background-color: #030305;
+    color: #888890;
+    padding: 60px 4% 40px 4%;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.m-top {
+    margin-top: 12px;
+}
+
+.footer-links a,
+.contact-link {
+    color: #888890;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.contact-link:hover {
+    color: #ff5500;
+}
+
+.divider {
+    color: #222228;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    margin: 40px auto;
+    max-width: 1300px;
+}
+
+.footer-bottom {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #555560;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   8. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .menu .hoa {
+        display: none;
+    }
+    .khung-chua-the {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 35px;
+    }
+    .preview-content {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+    .preview-img-wrap {
+        display: none;
+    }
+    .preview-info h3 {
+        font-size: 1.6rem;
+    }
+    .movie-logo {
+        font-size: 2.2rem;
+    }
+    .khung-tim-kiem input {
+        width: 140px;
+    }
+    .thumbnail-wrapper {
+        bottom: 85px;
+    }
+}
+
+
+/* THUMBNAILS BANNER - THÊM MẶT NẠ LÀM MỜ 2 BÊN RÌA */
+
+.thumbnail-wrapper {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 3;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    /* Lớp mặt nạ làm mờ mượt mà ở 2 bên rìa trái và phải */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 89%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
